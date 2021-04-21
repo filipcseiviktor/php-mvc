@@ -1,0 +1,45 @@
+@mixin banner{
+    position: relative;
+    width: 100%;
+    height: 1150px;
+
+    .banner_text{
+        width: 100%;
+        background: rgba(44, 71, 87, 0.9);
+        text-align: center;
+        color: white;
+        padding: 2rem;
+        z-index: 1;
+       
+
+        .banner_title{
+           
+            font-size: 3rem;
+
+        }
+        .banner_text_h2{
+            margin-top: 1rem ;
+            font-size: 1.5rem;
+          
+        }
+
+      
+    }
+}
+
+@mixin banner_after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.9;
+    background-image: url('../images/background.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: repeat;
+    background-size: cover;
+}

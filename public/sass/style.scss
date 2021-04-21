@@ -1,0 +1,126 @@
+@charset "utf-8";
+@import "../../node_modules/bulma/bulma.sass";
+@import 'variables';
+@import 'mixins';
+@import 'buttons';
+
+
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+ 
+}
+
+a:hover{
+    color: white !important;
+}
+a{
+    color: white !important;
+}
+
+.banner{
+   @include banner;
+
+}
+
+.banner:after {
+ @include banner_after
+}
+
+#cruduser-first-col{
+    min-width: 150px !important;
+}
+
+#showadvertisements-first-col{
+    min-width: 500px;
+}
+
+.showadvertisements{
+    flex-direction: row;
+}
+
+
+@media screen and (max-width: 992px) {
+   
+    .banner{
+        .banner_text{
+
+            .banner_title{
+                font-size: 2rem !important;
+                
+            }
+        }
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    
+    #showadvertisements-first-col{
+        min-width: 0px !important;
+    }
+    .banner{
+
+        height: 750px !important;
+
+        .container{
+            width: 90% !important;
+            height: 80% !important;
+           
+        }
+    
+        .banner_text{
+    
+            .banner_title{
+                font-size: 2rem !important;
+            }
+            
+            .banner_text{
+                font-size: 1.2rem !important;
+            }
+    
+
+        }
+    }
+   
+}
+
+
+
+@media screen and (max-width: 425px) {
+    
+    .showadvertisements{
+        flex-direction: column !important;
+    }
+    .banner{
+        height: 150vh !important;
+
+        .container{
+            width: 100% !important;
+            height: 85% !important; 
+         
+        }
+        
+        .banner_text{
+    
+            width: 300px !important;
+            height: 900px !important;
+
+            .banner_title{
+                margin-top: 30% ;
+                font-size: 2rem !important;
+    
+            }
+            
+            .banner_text{
+                margin-top: 20% !important;
+                font-size: 1rem !important;
+                text-align: left;
+            }
+
+        }
+    }
+   
+}

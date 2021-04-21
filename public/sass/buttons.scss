@@ -1,0 +1,39 @@
+.main_button,
+.main_button::after{
+    transition: all 0.5s;
+}
+.main_button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    display: block;
+    padding: .5em 1em;
+    position: relative;
+    font-size: 1.5rem;
+    z-index: 0;
+    cursor: pointer;
+    min-width: 200px;
+    
+    }
+.main_button::before,
+.main_button::after{
+background: $blue !important;
+content: '';
+z-index: 1;
+position: absolute;
+}
+
+.main_button:hover{
+    color: white;
+}
+.main_button::after{
+z-index: -1;
+height: 100%;
+left: 0;
+top: 0;
+width: 0;
+}
+
+.main_button:hover:after{
+    width: 100%;
+}
