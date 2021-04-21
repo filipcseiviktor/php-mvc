@@ -22,7 +22,7 @@ class Database
         $this->connect();
     }
 
-    // Set database connection
+    // Get database connection
     public function connect()
     {
         //Check if $pdo is already exists to avoid multiple connections
