@@ -26,11 +26,10 @@ class CrudUser
     public function create()
     {
         $create_user_name = $_POST['create_user_name'];
+        $create_user_name = trim(str_replace("  ", " ", $_POST['create_user_name'])); //trim whitespaces or duplicate whitespaces from start and from end
+        $create_user_name = filter_var($create_user_name, FILTER_SANITIZE_STRING); //remove html tags from the string
 
         if (!empty($create_user_name) && strlen($create_user_name) > 0 && strlen($create_user_name) < 11) {
-
-            $create_user_name = trim(str_replace("  ", " ", $_POST['create_user_name'])); //trim whitespaces or duplicate whitespaces from start and from end
-            $create_user_name = filter_var($create_user_name, FILTER_SANITIZE_STRING); //remove html tags from the string
 
             $query =
                 "INSERT INTO $this->table_users($this->users_table_name) VALUES (:username)";

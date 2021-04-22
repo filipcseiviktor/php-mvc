@@ -17,11 +17,11 @@ class CrudAdvertisement
     {
         $create_advertisements_userid = $_POST['create_advertisements_userid'];
         $create_advertisements_title = $_POST['create_advertisements_title'];
-
+        $create_advertisements_title = trim(str_replace("  ", " ", $create_advertisements_title)); //trim whitespaces or duplicate whitespaces from start and from end
+        $create_advertisements_title = filter_var($create_advertisements_title, FILTER_SANITIZE_STRING); //remove html tags from the string
 
         if (!empty($create_advertisements_title) && !empty($create_advertisements_userid) && strlen($create_advertisements_title) > 1 && strlen($create_advertisements_title) < 40) {
-            $create_advertisements_title = trim(str_replace("  ", " ", $create_advertisements_title)); //trim whitespaces or duplicate whitespaces from start and from end
-            $create_advertisements_title = filter_var($create_advertisements_title, FILTER_SANITIZE_STRING); //remove html tags from the string
+
 
             $query_insert =
                 "INSERT INTO $this->table_advertisements($this->table_advertisements_userid, $this->table_advertisements_title) VALUES (:userid, :title)";
