@@ -28,6 +28,7 @@ class CrudUser
         $create_user_name = $_POST['create_user_name'];
         $create_user_name = trim(str_replace("  ", " ", $_POST['create_user_name'])); //trim whitespaces or duplicate whitespaces from start and from end
         $create_user_name = filter_var($create_user_name, FILTER_SANITIZE_STRING); //remove html tags from the string
+        $create_user_name = htmlentities($create_user_name, ENT_QUOTES);
 
         if (!empty($create_user_name) && strlen($create_user_name) > 0 && strlen($create_user_name) < 11) {
 
@@ -65,6 +66,7 @@ class CrudUser
         $update_user_name = $_POST['update_user_name'];
         $update_user_name = trim(str_replace("  ", " ", $_POST['update_user_name']));  //trim whitespaces or duplicate whitespaces from start and from end
         $update_user_name = filter_var($update_user_name, FILTER_SANITIZE_STRING); //remove html tags from the string
+        $update_user_name = htmlentities($update_user_name, ENT_QUOTES);
 
         if (!empty($update_user_name) && strlen($update_user_name) > 0 && strlen($update_user_name) < 11) {
             $query =

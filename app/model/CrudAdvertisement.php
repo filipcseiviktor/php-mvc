@@ -19,6 +19,7 @@ class CrudAdvertisement
         $create_advertisements_title = $_POST['create_advertisements_title'];
         $create_advertisements_title = trim(str_replace("  ", " ", $create_advertisements_title)); //trim whitespaces or duplicate whitespaces from start and from end
         $create_advertisements_title = filter_var($create_advertisements_title, FILTER_SANITIZE_STRING); //remove html tags from the string
+        $create_advertisements_title = htmlentities($create_advertisements_title, ENT_QUOTES);
 
         if (!empty($create_advertisements_title) && !empty($create_advertisements_userid) && strlen($create_advertisements_title) > 1 && strlen($create_advertisements_title) < 40) {
 
@@ -60,6 +61,7 @@ class CrudAdvertisement
         $update_advertisement_title = $_POST['update_advertisement_title'];
         $update_advertisement_title = trim(str_replace("  ", " ", $update_advertisement_title));  //trim whitespaces or duplicate whitespaces from start and from end
         $update_advertisement_title = filter_var($update_advertisement_title, FILTER_SANITIZE_STRING); //remove html tags from the string
+        $update_advertisement_title = htmlentities($update_advertisement_title, ENT_QUOTES);
 
         if (!empty($update_advertisement_title) && strlen($update_advertisement_title) > 0 && strlen($update_advertisement_title) < 41) {
 
